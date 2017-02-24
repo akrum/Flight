@@ -18,13 +18,32 @@
     }
 
     .userPicture {
-        height: 5%;
-        width: 5%;
+        height: 10%;
+        width: 15%;
         border-radius: 50%;
-        box-shadow:0px 0px 7px 2px grey;
+        box-shadow: 0px 0px 7px 2px grey;
     }
-    .loginButtons{
-        width: auto;
+
+    .ghost-button-rounded-corners {
+        display: inline-block;
+        width: 100px;
+        padding: 8px;
+        color: rgb(100, 100, 100);
+        border: 1px solid #fff;
+        border-radius: 5px;
+        text-align: center;
+        outline: none;
+        font-size: 110%;
+        text-decoration: none;
+        font-family: Lobster, serif;
+        background-color: rgba(256, 256, 256, 0.7);
+        box-shadow: box-shadow: 0px 0px 7px 2px grey;
+    }
+
+    .ghost-button-rounded-corners:hover,
+    .ghost-button-rounded-corners:active {
+        background-color: rgba(256, 256, 256, 0.9);
+        color: rgb(100, 100, 100);
     }
 </style>
 <html lang="en">
@@ -33,9 +52,13 @@
     <title>FLIGHT</title>
 </head>
 <body>
-<div class="container-fluid"  >
-        <img src="loginPicture.png" class="userPicture" style="margin-top: 5px">
-    <button class="btn btn-block loginButtons col-md-25">log in</button>
+<div class="container-fluid">
+    <div style="margin-top: 9px; display:inline-block">
+        <img src="loginPicture.png" class="userPicture" >
+            <button class="ghost-button-rounded-corners" style="margin-left: 4px" >log in</button>
+            <button class="ghost-button-rounded-corners " style="margin-left: 4px" >register</button>
+    </div>
+
     <div class="col-xs-20">
         <h1 class="text-center">Flight</h1>
     </div>
