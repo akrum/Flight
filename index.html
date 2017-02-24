@@ -5,6 +5,7 @@
     body {
         background-color: rgb(44, 252, 254);
         background-image: url("background.jpg");
+        background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -22,6 +23,9 @@
         border-radius: 50%;
         box-shadow:0px 0px 7px 2px grey;
     }
+    .loginButtons{
+        width: auto;
+    }
 </style>
 <html lang="en">
 <head>
@@ -29,13 +33,13 @@
     <title>FLIGHT</title>
 </head>
 <body>
-<div class="container-fluid ">
-        <img src="loginPicture.png" class="userPicture">
+<div class="container-fluid"  >
+        <img src="loginPicture.png" class="userPicture" style="margin-top: 5px">
+    <button class="btn btn-block loginButtons col-md-25">log in</button>
     <div class="col-xs-20">
         <h1 class="text-center">Flight</h1>
     </div>
 </div>
-
 </body>
 
 </html>
