@@ -3,6 +3,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Baloo|Supermercado+One" rel="stylesheet">
 <style>
     body {
         background-color: rgb(44, 252, 254);
@@ -50,9 +51,10 @@
 
     .ghost-button-fully-rounded {
         display: inline-block;
-        width: 80px;
-        height: 80px;
-        padding: 8px;
+        width: 7%;
+        height: 0;
+        padding-bottom: 7%;
+        /*padding: 8px;*/
         color: rgb(100, 100, 100);
         border: 1px solid #fff;
         border-radius: 50%;
@@ -72,10 +74,12 @@
     }
 
     .composeImage {
-        left: 0px;
-        width: 65px;
-        height: 55px;
-        float: left;
+        position: relative;
+        left: 3%;
+        top: 7px;
+        width: 90%;
+        height: 70%;
+        alignment: center;
     }
 
     .ropeImageClass {
@@ -100,8 +104,36 @@
 
     .my-signs {
         margin-left: 5%;
-        width: 25%;
-        height: 25%;
+        width: 100%;
+        height: 100%;
+
+    }
+    .sign-container{
+        width: 20%;
+        height: 20%;
+    }
+    .sign-text{
+        position:absolute;
+        box-sizing: content-box;
+        top: 49%;
+        left: 20%;
+        /*right: 50%; !important;*/
+        /*bottom: 50%; !important;*/
+        z-index: 3;
+        width: 75%;
+        height: 1px;
+        font-family: 'Baloo', cursive;
+        font-size: larger;
+    }
+    .sign-auth-pic{
+        top: 30%;
+        left: 75%;
+        position: absolute;
+        z-index: 2;
+        height: 15%;
+        width: 15%;
+        border-radius: 50%;
+        box-shadow: 0px 0px 7px 2px grey;
     }
 </style>
 <html lang="en">
@@ -124,12 +156,15 @@
         <h1 class="text-center">Flight</h1>
     </div>
 </div>
-<div style="position: relative">
+<div style="position: relative;">
     <img src="rope2.png" class="ropeImageClass" style="z-index: 0;overflow: hidden">
-    <div style="position: absolute;top: 45%">
-        <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
-        <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
-        <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
+    <div style="position: absolute;top: 45%;">
+        <div style="position:relative" class="sign-container">
+            <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
+            <img src="loginPicture.png" class="sign-auth-pic">
+            <p class="sign-text"  >Was announced a brand new news app FLIGHT</p>
+        </div>
+
     </div>
 </div>
 
