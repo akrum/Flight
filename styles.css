@@ -44,10 +44,9 @@
 
     .ghost-button-fully-rounded {
         display: inline-block;
-        width: 10vw;
-        /*height: 14vh;*/
-        /*padding-bottom: 10%;*/
-        /*padding: 8px;*/
+        width: 9vw;
+        height: 9vw;
+        left: 70%;
         color: rgb(100, 100, 100);
         border: 1px solid #fff;
         border-radius: 100%;
@@ -70,8 +69,8 @@
         position: relative;
         left: 3%;
         top: 7%;
-        width: 90%;
-        height: 70%;
+        width: 85%;
+        height: 65%;
         alignment: center;
     }
 
