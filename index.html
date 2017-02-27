@@ -4,153 +4,10 @@
 <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Baloo|Supermercado+One" rel="stylesheet">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="styles.css" rel="stylesheet">
 <style>
-    body {
-        background-color: rgb(44, 252, 254);
-        background-image: url("background.jpg");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
 
-    h1 {
-        font-family: Lobster, Monospace, serif;
-        font-size: 650%;
-        color: white;
-        top: 500px;
-    }
-
-    .userPicture {
-        height: 10%;
-        width: 15%;
-        border-radius: 50%;
-        box-shadow: 0px 0px 7px 2px grey;
-    }
-
-    .ghost-button-rounded-corners {
-        display: inline-block;
-        width: 100px;
-        padding: 8px;
-        color: rgb(100, 100, 100);
-        border: 1px solid #fff;
-        border-radius: 5px;
-        text-align: center;
-        outline: none;
-        font-size: 110%;
-        text-decoration: none;
-        font-family: Inconsolata, serif;
-        background-color: rgba(256, 256, 256, 0.7);
-
-    }
-
-    .ghost-button-rounded-corners:hover,
-    .ghost-button-rounded-corners:active {
-        background-color: rgba(256, 256, 256, 0.9);
-        color: rgb(100, 100, 100);
-    }
-
-    .ghost-button-fully-rounded {
-        display: inline-block;
-        width: 7%;
-        height: 0;
-        padding-bottom: 7%;
-        /*padding: 8px;*/
-        color: rgb(100, 100, 100);
-        border: 1px solid #fff;
-        border-radius: 50%;
-        text-align: center;
-        outline: none;
-        font-size: 110%;
-        text-decoration: none;
-        font-family: Inconsolata, serif;
-        background-color: rgba(256, 256, 256, 0.7);
-        box-shadow: 0px 0px 7px 2px grey;
-    }
-
-    .ghost-button-fully-rounded:hover,
-    .ghost-button-fully-rounded:active {
-        background-color: rgba(256, 256, 256, 0.9);
-        color: rgb(100, 100, 100);
-    }
-
-    .composeImage {
-        position: relative;
-        left: 3%;
-        top: 7px;
-        width: 90%;
-        height: 70%;
-        alignment: center;
-    }
-
-    .ropeImageClass {
-        top: 47%;
-        max-height: 70%;
-        width: 100vw;
-        /*background-repeat: repeat-x;*/
-    }
-
-    .copyrightStyle {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        font-family: Tangerine, sans-serif;
-        font-size: 200%;
-        color: black;
-        background-color: transparent;
-        text-shadow: 0px 0px 9px 4px grey;
-        /*box-shadow: 0px 0px 7px 2px grey;*/
-    }
-
-    .my-signs {
-        margin-left: 5%;
-        width: 100%;
-        height: 100%;
-
-    }
-    .sign-container{
-        margin-left: 10%;
-        width: 20%;
-        height: 20%;
-    }
-    .sign-text{
-        position:absolute;
-        box-sizing: content-box;
-        top: 53%;
-        left: 20%;
-        /*right: 50%; !important;*/
-        /*bottom: 50%; !important;*/
-        z-index: 3;
-        width: 73%;
-        height: 1px;
-        font-family: 'Baloo', cursive;
-        font-size: larger;
-    }
-    .sign-auth-pic{
-        top: 33%;
-        left: 75%;
-        position: absolute;
-        z-index: 2;
-        height: 15%;
-        width: 15%;
-        border-radius: 50%;
-        box-shadow: 0px 0px 7px 2px grey;
-    }
-    .like-container{
-        position: absolute;
-        z-index: 2;
-        left: 17%;
-        top: 82%;
-    }
-    .sign-auth-name{
-        position: absolute;
-        top: 82%;
-        left: 60%;
-        color: gray;
-        font-family: sans-serif;
-
-    }
 </style>
 <html lang="en">
 <head>
@@ -178,12 +35,17 @@
         <div style="position:relative;float:left" class="sign-container">
             <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
             <img src="loginPicture.png" class="sign-auth-pic">
+            <button class="small-dot-tag " style="background-color:red"></button>
+            <button class="small-dot-tag " style="background-color:yellow;left: 44%"></button>
+            <button class="small-dot-tag " style="background-color:green;left: 47%"></button>
             <p class="sign-text"  >Was announced a brand new news app FLIGHT</p>
             <p class="like-container"><i class="fa fa-heart" aria-hidden="true"></i> 1000</p>
             <b class="sign-auth-name">by _aKrYm_</b>
         </div>
         <div style="position:relative;top: 45%;float: left" class="sign-container">
             <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
+            <button class="small-dot-tag " style="background-color:blue"></button>
+            <button class="small-dot-tag " style="background-color:black;left: 44%"></button>
             <img src="loginPicture.png" class="sign-auth-pic">
             <p class="sign-text" style="color: red;font-size: x-large" >Breaking news</p>
             <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 993</p>
@@ -191,6 +53,9 @@
         </div>
         <div style="position:relative;top: 45%;float: left" class="sign-container">
             <img src="Sign-better.png" class="my-signs" style="z-index: 1;overflow: hidden;">
+            <button class="small-dot-tag " style="background-color: rgb(230,253,56)"></button>
+            <button class="small-dot-tag " style="background-color:red;left: 44%"></button>
+            <button class="small-dot-tag " style="background-color:grey;left: 47%"></button>
             <img src="loginPicture.png" class="sign-auth-pic">
             <p class="sign-text"  >Apple announced iPhone 8</p>
             <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 992</p>
