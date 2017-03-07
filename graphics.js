@@ -8,11 +8,11 @@ var canUseVerticalScrolling=true;
 var mouseEvent= function (evnt) {
         if(evnt.deltaX!=0) canUseVerticalScrolling=false;
         globalSignsPosition-=evnt.deltaX/2;
-        globalRopePosition-=evnt.deltaX/15;
+        globalRopePosition-=evnt.deltaX/2;
         if(canUseVerticalScrolling)
         {
             globalSignsPosition-=evnt.deltaY/2;
-            globalRopePosition-=evnt.deltaY/15;
+            globalRopePosition-=evnt.deltaY/2;
         }
         document.getElementById("pageRope").style.backgroundPositionX=globalRopePosition+"px";
         document.getElementById("pageSigns").style.left=globalSignsPosition+"px";
