@@ -83,35 +83,17 @@
         background-size: 120vh;
         background-position-x: 0px;
         width: 100%;
-        /*transition: background-position-x 0.01s;*/
+        /*transition: background-position-x 0.05s;*/
         height: 100%;
         position: absolute;
-        margin-top: 1%;
+        margin-top: 4%;
     }
-    /*.rope1ImageClass {*/
-        /*display: inline-block;*/
-        /*position: relative;*/
-        /*overflow: hidden;*/
-        /*z-index: 0;*/
-        /*left:0px;*/
-        /*margin-left: 0%;*/
-        /*top: 45%;*/
-        /*max-height: 70%;*/
-        /*margin-top: 1%;*/
-        /*width: 100vw;*/
-    /*}*/
-    /*.rope2ImageClass{*/
-        /*display: inline-block;*/
-        /*position: relative;*/
-        /*overflow: hidden;*/
-        /*float: left;*/
-        /*z-index: 0;*/
-        /*left:100%;*/
-        /*top: 45%;*/
-        /*max-height: 70%;*/
-        /*margin-top: 1%;*/
-        /*width: 100vw;*/
-    /*}*/
+    .all-signs{
+        position: absolute;
+        margin-top: 3%;
+        /*top: 50%;*/
+        width: 300%;
+    }
 
 
     .copyrightStyle {
@@ -137,11 +119,12 @@
     }
     .sign-container{
         position: relative;
-        margin-left: 10%;
+        display: inline-block;
+        margin-left: 10vw;
         margin-top: 0%;
         float: left;
-        width: 20%;
-        height: 20%;
+        width: 20vw;
+        height: 40vh;
     }
     .sign-text{
         position:absolute;
@@ -209,10 +192,25 @@
         box-shadow: 0px 0px 1px 1px grey;
     }
     #pageSigns{
-        /*top: 5vh;*/
+        /*transition: left 0.05s;*/
     }
-
+    .dropdown-tag-picker{
+        border-style: none;
+        background-color: transparent;
+        opacity: 1;
+    }
+    .dropdown-tag-picker:hover{
+        background-color: rgba(10,10,10,0.2);
+        border-radius: 30%;
+        /*border-style: solid;*/
+    }
     .small-dot-tag:hover,
     .small-dot-tag:active {
         opacity: 0.9;
+    }
+    .slimScrollDiv{
+        position: relative;
+        overflow: hidden;
+        width: auto;
+        height: 317px;
     }

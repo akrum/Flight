@@ -13,15 +13,22 @@
 <head>
     <meta charset="UTF-8">
     <title>FLIGHT</title>
-
 </head>
-<body id="ropeAndSigns">
+<body>
 <div class="container-fluid">
     <div style="margin-top: 9px; display:inline-block">
         <img src="loginPicture.png" class="userPicture">
         <button class="ghost-button-rounded-corners" style="margin-left: 4px">log in</button>
         <button class="ghost-button-rounded-corners " style="margin-left: 4px">register</button>
-        <i class="fa fa-bars" style="margin-left: 4px" aria-hidden="true"></i>
+        <button class="fa fa-bars dropdown-tag-picker" style="margin-left: 4px" aria-hidden="true"></button>
+        <div class="arrow"></div>
+        <!--<div class="popover-content">-->
+            <!--<header class="popover-head">-->
+                <!--<span>Pick Tag or Search</span>-->
+            <!--</header>-->
+            <!--<div class="slimScrollDiv">-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
     <div align="right">
         <button class="ghost-button-fully-rounded"><img src="composeButtonChanged.png" class="composeImage"
@@ -32,8 +39,8 @@
     </div>
 </div>
 <div class="ropeImageClass" id="pageRope"></div>
-<div style="position: relative" id="pageSigns">
-    <div style="position: absolute;top: 45%" >
+<div style="position: relative;" id="pageSigns">
+    <div class="all-signs" >
         <div class="sign-container">
             <img src="Sign-better.png" class="my-signs">
             <img src="loginPicture.png" class="sign-auth-pic">
@@ -44,6 +51,7 @@
             <p class="like-container"><i class="fa fa-heart" aria-hidden="true"></i> 1000</p>
             <b class="sign-auth-name">by _aKrYm_</b>
         </div>
+
         <div class="sign-container">
             <img src="Sign-better.png" class="my-signs">
             <button class="small-dot-tag " style="background-color:blue"></button>
@@ -53,6 +61,7 @@
             <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 993</p>
             <b class="sign-auth-name">by _aKrYm_</b>
         </div>
+
         <div class="sign-container">
             <img src="Sign-better.png" class="my-signs">
             <button class="small-dot-tag " style="background-color: rgb(230,253,56)"></button>
@@ -63,24 +72,44 @@
             <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 992</p>
             <b class="sign-auth-name">by _aKrYm_</b>
         </div>
-        <!--<div  class="sign-container">-->
-        <!--<img src="Sign-better.png" class="my-signs" >-->
-        <!--<button class="small-dot-tag " style="background-color: rgb(230,253,56)"></button>-->
-        <!--<button class="small-dot-tag " style="background-color:red;left: 44%"></button>-->
-        <!--<button class="small-dot-tag " style="background-color:grey;left: 47%"></button>-->
-        <!--<img src="loginPicture.png" class="sign-auth-pic">-->
-        <!--<p class="sign-text">Apple announced iPhone 8</p>-->
-        <!--<p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 992</p>-->
-        <!--<b class="sign-auth-name">by _aKrYm_</b>-->
-        <!--</div>-->
 
+        <div  class="sign-container">
+        <img src="Sign-better.png" class="my-signs" >
+        <button class="small-dot-tag " style="background-color: rgb(230,253,56)"></button>
+        <button class="small-dot-tag " style="background-color:red;left: 44%"></button>
+        <button class="small-dot-tag " style="background-color:#faffff;left: 47%"></button>
+        <img src="loginPicture.png" class="sign-auth-pic">
+        <p class="sign-text">Apple announced iPhone 8</p>
+        <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 992</p>
+        <b class="sign-auth-name">by _aKrYm_</b>
+        </div>
+
+        <div class="sign-container">
+            <img src="Sign-better.png" class="my-signs">
+            <button class="small-dot-tag " style="background-color:blue"></button>
+            <button class="small-dot-tag " style="background-color:#62ffd6;left: 44%"></button>
+            <img src="loginPicture.png" class="sign-auth-pic">
+            <p class="sign-text" style="color: red;font-size: x-large">Breaking news</p>
+            <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 993</p>
+            <b class="sign-auth-name">by _aKrYm_</b>
+        </div>
+
+        <div class="sign-container">
+            <img src="Sign-better.png" class="my-signs">
+            <img src="loginPicture.png" class="sign-auth-pic">
+            <button class="small-dot-tag " style="background-color:#62ffd6"></button>
+            <button class="small-dot-tag " style="background-color:#bc46ff;left: 44%"></button>
+            <button class="small-dot-tag " style="background-color:green;left: 47%"></button>
+            <p class="sign-text">Was announced a brand new news app FLIGHT</p>
+            <p class="like-container"><i class="fa fa-heart" aria-hidden="true"></i> 1000</p>
+            <b class="sign-auth-name">by _aKrYm_</b>
+        </div>
     </div>
 </div>
 
 
 <script src="graphics.js"></script>
 <script src="script.js"></script>
-
 <div style="position: relative">
     <p class="copyrightStyle">
         Copyright © 2017 Andrew Rumiantsev.
