@@ -8,6 +8,9 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
+        /*filter: blur(3px);*/
+        /*filter: blur(0px);*/
+        /*transition: filter 0.5s;*/
     }
 
     h1 {
@@ -213,4 +216,62 @@
         overflow: hidden;
         width: auto;
         height: 317px;
+    }
+    .popover-content{
+        position: absolute;
+        border-radius: 5%;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 30;
+        left: 25%;
+        margin-top: -4%;
+        width: 43vw;
+        height: 85vh;
+        visibility: hidden;
+        filter: blur(0px); !important;
+
+    }
+    .blurred-object{
+        transition: filter 1s;
+    }
+    .popover-head
+    {
+        font-family: Tangerine,sans-serif;
+        text-align: center;
+        font-size: 9vh;
+    }
+    .search-field{
+        width:100%;
+    }
+    .vertical-line{
+        width: 1px;
+        background-color: black;
+        height: 100%;
+        float: left;
+    }
+    .submit-button {
+        background-color: #008CBA;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        float: right;
+        bottom: 0;
+        cursor: pointer;
+    }
+    .tag-pick-field{
+        border: 2px solid #4CAF50;
+        border-radius: 5%;
+        background-color: transparent;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 100%;
+        margin: 4px 2px;
+        cursor: pointer;
+        height: 9vh;
+        width: 10vw;
     }

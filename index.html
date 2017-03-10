@@ -13,34 +13,43 @@
 <head>
     <meta charset="UTF-8">
     <title>FLIGHT</title>
+
 </head>
 <body>
 <div class="container-fluid">
     <div style="margin-top: 9px; display:inline-block">
-        <img src="loginPicture.png" class="userPicture">
-        <button class="ghost-button-rounded-corners" style="margin-left: 4px">log in</button>
-        <button class="ghost-button-rounded-corners " style="margin-left: 4px">register</button>
-        <button class="fa fa-bars dropdown-tag-picker" style="margin-left: 4px" aria-hidden="true"></button>
+        <img src="loginPicture.png" class="userPicture blurred-object">
+        <button class="ghost-button-rounded-corners blurred-object" style="margin-left: 4px">log in</button>
+        <button class="ghost-button-rounded-corners blurred-object" style="margin-left: 4px">register</button>
+        <button class="fa fa-bars dropdown-tag-picker blurred-object" style="margin-left: 4px;z-index: 0"
+                aria-hidden="true" id="bars-picker"></button>
         <div class="arrow"></div>
-        <!--<div class="popover-content">-->
-            <!--<header class="popover-head">-->
-                <!--<span>Pick Tag or Search</span>-->
-            <!--</header>-->
-            <!--<div class="slimScrollDiv">-->
-            <!--</div>-->
-        <!--</div>-->
-    </div>
-    <div align="right">
-        <button class="ghost-button-fully-rounded"><img src="composeButtonChanged.png" class="composeImage"
-                                                        align="left"></button>
-    </div>
-    <div class="col-xs-20" style="position: relative;top: 50%">
-        <h1 class="text-center">Flight</h1>
+        <div class="popover-content" id="popoverWindow">
+            <header class="popover-head">
+                <span style="margin-left: 6%">Pick Tag or Search</span>
+            </header>
+
+            <form>
+                <input placeholder="Tag name or search string" class="search-field">
+                <div style="float: left">
+                    <button class="tag-pick-field">Technology</button>
+                </div>
+                <input type="submit" name="submit-button" class="submit-button">
+            </form>
+        </div>
     </div>
 </div>
-<div class="ropeImageClass" id="pageRope"></div>
-<div style="position: relative;" id="pageSigns">
-    <div class="all-signs" >
+<div align="right">
+    <button class="ghost-button-fully-rounded blurred-object"><img src="composeButtonChanged.png" class="composeImage"
+                                                                   align="left"></button>
+</div>
+<div class="col-xs-20 blurred-object" style="position: relative;top: 50%">
+    <h1 class="text-center">Flight</h1>
+</div>
+</div>
+<div class="ropeImageClass blurred-object" id="pageRope"></div>
+<div style="position: relative;" id="pageSigns" class="blurred-object">
+    <div class="all-signs">
         <div class="sign-container">
             <img src="Sign-better.png" class="my-signs">
             <img src="loginPicture.png" class="sign-auth-pic">
@@ -73,15 +82,15 @@
             <b class="sign-auth-name">by _aKrYm_</b>
         </div>
 
-        <div  class="sign-container">
-        <img src="Sign-better.png" class="my-signs" >
-        <button class="small-dot-tag " style="background-color: rgb(230,253,56)"></button>
-        <button class="small-dot-tag " style="background-color:red;left: 44%"></button>
-        <button class="small-dot-tag " style="background-color:#faffff;left: 47%"></button>
-        <img src="loginPicture.png" class="sign-auth-pic">
-        <p class="sign-text">Apple announced iPhone 8</p>
-        <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 992</p>
-        <b class="sign-auth-name">by _aKrYm_</b>
+        <div class="sign-container">
+            <img src="Sign-better.png" class="my-signs">
+            <button class="small-dot-tag " style="background-color: rgb(230,253,56)"></button>
+            <button class="small-dot-tag " style="background-color:red;left: 44%"></button>
+            <button class="small-dot-tag " style="background-color:#faffff;left: 47%"></button>
+            <img src="loginPicture.png" class="sign-auth-pic">
+            <p class="sign-text">Apple announced iPhone 8</p>
+            <p class="like-container"><i class="fa fa-heart-o" aria-hidden="true"></i> 992</p>
+            <b class="sign-auth-name">by _aKrYm_</b>
         </div>
 
         <div class="sign-container">
@@ -108,8 +117,8 @@
 </div>
 
 
-<script src="graphics.js"></script>
-<script src="script.js"></script>
+<!--<script src="script.js"></script>-->
+<script src="graphics.js" async></script>
 <div style="position: relative">
     <p class="copyrightStyle">
         Copyright © 2017 Andrew Rumiantsev.
