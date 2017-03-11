@@ -269,9 +269,25 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
+        /*float: left;*/
         font-size: 100%;
         margin: 4px 2px;
         cursor: pointer;
         height: 9vh;
         width: 10vw;
+        transition: background-color 0.5s;
+    }
+    .tag-pick-field:hover{
+        background-color: rgba(255,254,253,0.7);
+    }
+    table {
+        border: none; border-collapse: collapse;
+        width: 100%;
+        height: 90%;
+    }
+    table td {
+        border-left: 1px solid grey;
+    }
+    table td:first-child {
+        border-left: none;
     }

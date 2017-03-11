@@ -31,9 +31,31 @@
 
             <form>
                 <input placeholder="Tag name or search string" class="search-field">
-                <div style="float: left">
-                    <button class="tag-pick-field">Technology</button>
-                </div>
+                <!--<div style="float: left">-->
+                    <!--<button class="tag-pick-field">Technology</button>-->
+                <!--</div>-->
+                <table>
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tr>
+                        <th align="center">Available tags</th>
+                        <th align="center">Your filters</th>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <button class="tag-pick-field">Technology</button>
+                            <button class="tag-pick-field" style="border: 2px solid #422caf;">Apple</button>
+                            <button class="tag-pick-field" style="border: 2px solid #af2f2b;">TESLA</button>
+                        </td>
+                        <td align="center">
+                            <button class="tag-pick-field">Technology</button>
+                            <!--<button class="tag-pick-field" style="border: 2px solid #422caf;">Apple</button>-->
+                            <button class="tag-pick-field" style="border: 2px solid #af2f2b;">TESLA</button>
+                        </td>
+                    </tr>
+                </table>
                 <input type="submit" name="submit-button" class="submit-button">
             </form>
         </div>
