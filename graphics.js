@@ -45,9 +45,48 @@ var mouseNotOverBars=function (evnt) {
     }
     console.log("Will hide popover");
 };
+var showLoginFields= function (evnt) {
+    document.getElementById("loginFields").style.visibility="visible";
+    var objectsToBlur = document.getElementsByClassName("blurred-object");
+    for(var i=0;i<objectsToBlur.length;i++)
+    {
+        objectsToBlur[i].style.filter="blur(3px)";
+        objectsToBlur[i].style.pointerEvents="none";
+    }
+};
+var hideLoginFiields = function (evnt) {
+    document.getElementById("loginFields").style.visibility="hidden";
+    var objectsToBlur = document.getElementsByClassName("blurred-object");
+    for(var i=0;i<objectsToBlur.length;i++)
+    {
+        objectsToBlur[i].style.filter="none";
+        objectsToBlur[i].style.pointerEvents="all";
+    }
+};
+var showRegisterFields= function (evnt) {
+    document.getElementById("registerFields").style.visibility="visible";
+    var objectsToBlur = document.getElementsByClassName("blurred-object");
+    for(var i=0;i<objectsToBlur.length;i++)
+    {
+        objectsToBlur[i].style.filter="blur(3px)";
+        objectsToBlur[i].style.pointerEvents="none";
+    }
+};
+var hideRegisterFiields = function (evnt) {
+    document.getElementById("registerFields").style.visibility="hidden";
+    var objectsToBlur = document.getElementsByClassName("blurred-object");
+    for(var i=0;i<objectsToBlur.length;i++)
+    {
+        objectsToBlur[i].style.filter="none";
+        objectsToBlur[i].style.pointerEvents="all";
+    }
+};
 document.body.addEventListener("wheel",mouseEvent);
 document.getElementById("bars-picker").addEventListener("mouseover",mouseOverBars);
 document.getElementById("popoverWindow").addEventListener("mouseleave",mouseNotOverBars);
-
+document.getElementById("loginButton").addEventListener("click",showLoginFields);
+document.getElementById("loginCloseButton").addEventListener("click",hideLoginFiields);
+document.getElementById("registerButton").addEventListener("click",showRegisterFields);
+document.getElementById("registerCloseButton").addEventListener("click",hideRegisterFiields);
 // console.log("position:"+parseInt(document.getElementById("pageRope0").style.left,10));
 // document.getElementById("pageSigns").style.top=document.getElementById("pageRope0").style.top;

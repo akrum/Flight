@@ -19,21 +19,17 @@
 <div class="container-fluid">
     <div style="margin-top: 9px; display:inline-block">
         <img src="loginPicture.png" class="userPicture blurred-object">
-        <button class="ghost-button-rounded-corners blurred-object" style="margin-left: 4px">log in</button>
-        <button class="ghost-button-rounded-corners blurred-object" style="margin-left: 4px">register</button>
-        <button class="fa fa-bars dropdown-tag-picker blurred-object" style="margin-left: 4px;z-index: 0"
+        <button class="ghost-button-rounded-corners blurred-object" id="loginButton" >log in</button>
+        <button class="ghost-button-rounded-corners blurred-object" id="registerButton">register</button>
+        <button class="fa fa-bars dropdown-tag-picker blurred-object"
                 aria-hidden="true" id="bars-picker"></button>
         <div class="arrow"></div>
         <div class="popover-content" id="popoverWindow">
             <header class="popover-head">
                 <span style="margin-left: 6%">Pick Tag or Search</span>
             </header>
-
             <form>
                 <input placeholder="Tag name or search string" class="search-field">
-                <!--<div style="float: left">-->
-                    <!--<button class="tag-pick-field">Technology</button>-->
-                <!--</div>-->
                 <table>
                     <colgroup>
                         <col>
@@ -51,13 +47,27 @@
                         </td>
                         <td align="center">
                             <button class="tag-pick-field">Technology</button>
-                            <!--<button class="tag-pick-field" style="border: 2px solid #422caf;">Apple</button>-->
                             <button class="tag-pick-field" style="border: 2px solid #af2f2b;">TESLA</button>
                         </td>
                     </tr>
                 </table>
-                <input type="submit" name="submit-button" class="submit-button">
+                <button  class="submit-button">Submit</button>
             </form>
+        </div>
+        <div class="login-form" id="loginFields">
+            <form>
+                <i class="fa fa-times close-button" aria-hidden="true" id="loginCloseButton"></i>
+                <input placeholder="Login" align="center" class="general-input-fields">
+                <input placeholder="Password" align="center" class="general-input-fields">
+                <button class="submit-button">Login</button>
+            </form>
+        </div>
+        <div class="register-form" id="registerFields">
+            <i class="fa fa-times close-button" aria-hidden="true" id="registerCloseButton"></i>
+            <input placeholder="Login" align="center" class="general-input-fields">
+            <input placeholder="Password" align="center" class="general-input-fields">
+            <input placeholder="email" align="center" class="general-input-fields">
+            <button class="submit-button">Login</button>
         </div>
     </div>
 </div>
@@ -65,7 +75,7 @@
     <button class="ghost-button-fully-rounded blurred-object"><img src="composeButtonChanged.png" class="composeImage"
                                                                    align="left"></button>
 </div>
-<div class="col-xs-20 blurred-object" style="position: relative;top: 50%">
+<div class="col-xs-20 blurred-object site-name" >
     <h1 class="text-center">Flight</h1>
 </div>
 </div>
