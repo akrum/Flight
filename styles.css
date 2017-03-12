@@ -20,7 +20,7 @@
         top: 500px;
     }
 
-    .userPicture {
+    .user-picture {
         height: 10%;
         width: 15%;
         border-radius: 50%;
@@ -73,7 +73,7 @@
         color: rgb(100, 100, 100);
     }
 
-    .composeImage {
+    .compose-image {
         position: relative;
         left: 3%;
         top: 7%;
@@ -81,7 +81,7 @@
         height: 65%;
         alignment: center;
     }
-    .ropeImageClass{
+    .rope-image-class{
         background-image:url('rope4.png');
         background-repeat: repeat-x;
         background-size: 120vh;
@@ -96,11 +96,11 @@
         position: absolute;
         margin-top: 3%;
         /*top: 50%;*/
-        width: 300%;
+        width: 100000%;
     }
 
 
-    .copyrightStyle {
+    .copyright-style {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -157,12 +157,12 @@
         position: absolute;
         z-index: 2;
         left: 17%;
-        top: 82%;
+        top: 85%;
     }
     .sign-auth-name{
         position: absolute;
         white-space: nowrap;
-        top: 82%;
+        top: 84%;
         left: 60%;
         color: gray;
         font-family: sans-serif;
@@ -217,7 +217,7 @@
     .small-dot-tag:active {
         opacity: 0.9;
     }
-    .slimScrollDiv{
+    .slim-scroll-div{
         position: relative;
         overflow: hidden;
         width: auto;

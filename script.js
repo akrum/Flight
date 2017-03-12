@@ -397,6 +397,7 @@ var articleService=(function () {
             }
         }
         articles.splice(index,1);
+        nextIndex--;
     }
     function editArticle(articleID,someArticle) {
         var clone = Object.assign({}, getArticle(articleID));
@@ -404,7 +405,7 @@ var articleService=(function () {
         if (someArticle.author) clone.author=someArticle.author;
         if (someArticle.summary)clone.summary=someArticle.summary;
         if (someArticle.createdAt)clone.createdAt=someArticle.createdAt;
-        if(someArticle.author)clone.author=someArticle.author;
+        if(someArticle.title)clone.title=someArticle.title;
         if(someArticle.content)clone.content=someArticle.content;
         if (someArticle.tags)clone.tags=someArticle.tags;
         if (validateArticle(clone)) {
@@ -418,6 +419,9 @@ var articleService=(function () {
         }
         else return false;
     }
+    function getTagArray() {
+        return tags;
+    }
     return{
         checkTagForExistenceIn: checkTagForExistanceIn,
         sortArticles: sortArticles,
@@ -427,27 +431,28 @@ var articleService=(function () {
         addArticle: addArticle,
         removeArticle: removeArticle,
         editArticle: editArticle,
-        getAllArticles: getAllArticles
+        getAllArticles: getAllArticles,
+        getTagArray: getTagArray
     };
 }());
 
 articleService.getAllArticles().forEach(function (article) {
     console.log(articleService.validateArticle(article));
 });
-articleService.addArticle({
-    title: "Oculus price drop proves competition is key to VR success",
-    summary: "Gaming in VR has a bit of a barrier to entry. Nestled between the phone-based headsets and the high-end experiences is the PlayStation VR, but that’s still $399 plus the PlayStation itself. For Oculus or HTC you’re looking at $800-plus and a high-end gaming rig that should set youbackatleastagrand.",
-    createdAt: new Date('2017-03-01T22:43') ,
-    author: "BRYAN CLARK",
-    content: "The company today announced a price drop on its Rift headset with Touch controllers. The bundle will now sell for $598, down from the $798 retail price it’s typically listed at. If you already have Rift, you can grab touch for just $99 — although you’ll have to splurge for the $58 sensor to map its movements.",
-    tags: ["TECH","CARS"]
-});
-articleService.getArticle("15");
-articleService.removeArticle("21");
-console.log(articleService.editArticle("2",{author:"Andrew Rumiantsev", undefined}));
-articleService.sortArticles(articleService.getAllArticles());
-console.log(articleService.getAllArticles());
-console.log(articleService.getArticles(undefined,undefined,authorFilter|dateFilter|tagFilter,"MIX","2017",["TECH","FACEBOOK"]));
+// articleService.addArticle({
+//     title: "Oculus price drop proves competition is key to VR success",
+//     summary: "Gaming in VR has a bit of a barrier to entry. Nestled between the phone-based headsets and the high-end experiences is the PlayStation VR, but that’s still $399 plus the PlayStation itself. For Oculus or HTC you’re looking at $800-plus and a high-end gaming rig that should set youbackatleastagrand.",
+//     createdAt: new Date('2017-03-01T22:43') ,
+//     author: "BRYAN CLARK",
+//     content: "The company today announced a price drop on its Rift headset with Touch controllers. The bundle will now sell for $598, down from the $798 retail price it’s typically listed at. If you already have Rift, you can grab touch for just $99 — although you’ll have to splurge for the $58 sensor to map its movements.",
+//     tags: ["TECH","CARS"]
+// });
+// articleService.getArticle("15");
+// articleService.removeArticle("21");
+// console.log(articleService.editArticle("2",{author:"Andrew Rumiantsev", undefined}));
+// articleService.sortArticles(articleService.getAllArticles());
+// console.log(articleService.getAllArticles());
+// console.log(articleService.getArticles(undefined,undefined,authorFilter|dateFilter|tagFilter,"MIX","2017",["TECH","FACEBOOK"]));
 
 var articleInsertTool = (function () {
     var articleContainer;
@@ -477,27 +482,81 @@ var articleInsertTool = (function () {
     function makeHtmlForArticle(article)
     {
         var result="";
-        result+=buildOneTag("img",buildAttribute("src","Sign-better.png")+buildAttribute("class","my-signs"),null);
-        result+=buildOneTag("img",buildAttribute("src","loginPicture.png")+buildAttribute("class","sign-auth-pic"),null);
-        result+=buildOneTag("button",buildAttribute("style","lbackground-color:red")+buildAttribute("class","small-dot-tag"),"");
+        result+=buildOneTag("img",buildAttribute("src","Sign-better.png")+buildAttribute("class","my-signs"),undefined);
+        result+=buildOneTag("img",buildAttribute("src","loginPicture.png")+buildAttribute("class","sign-auth-pic"),undefined);
+        var percentage=40;
+        article.tags.forEach(function (thisArtTag) {
+            articleService.getTagArray().forEach(
+                function (availableTag) {
+                    if(availableTag.tag.toLowerCase().trim()==thisArtTag.trim().toLowerCase())
+                    {
+                        result+=buildOneTag("button",buildAttribute("style","background-color:"+availableTag.color+";\nleft:"+percentage.toString()+"%")+buildAttribute("class","small-dot-tag"),"");
+                        percentage+=3;
+                    }
+                }
+            )
+        });
         result+=buildOneTag("p",buildAttribute("class","sign-text"),article.title);
-        result+=buildOneTag("p",buildAttribute("class","like-container"),buildOneTag("i",buildAttribute("class","fa fa-heart",null))+"1000");
-        result+=buildOneTag("b",buildAttribute("class","sign-auth-name"),article.author);
+        result+=buildOneTag("p",buildAttribute("class","like-container"),buildOneTag("i",buildAttribute("class","fa fa-heart"),"")+"1000");
+        result+=buildOneTag("b",buildAttribute("class","sign-auth-name"),"by "+article.author);
         result=buildOneTag("div",buildAttribute("class","sign-container")+buildAttribute("data-id",article.id),result);
         return result;
     }
+    function makeHtmlForAllArticles(articles) {
+        var newResult="";
+        articles.forEach(function (article) {
+            newResult+=makeHtmlForArticle(article);
+        });
+        return newResult;
+    }
+    function appendArticlesToContainer(articles) {
+        // console.log(makeHtmlForAllArticles(articles));
+        articleContainer.innerHTML=makeHtmlForAllArticles(articles);
+    }
+    function resetArticleContainer() {
+        articleContainer.innerHTML="";
+    }
     return{
         init: init,
-        makeHtmlForArticle:makeHtmlForArticle
+        makeHtmlForArticle:makeHtmlForArticle,
+        appendArticlesToContainer:appendArticlesToContainer,
+        resetArticleContainer: resetArticleContainer
     };
 }());
 document.addEventListener('DOMContentLoaded', initInsertToolAndStartRoutine);
 
+function test1() {
+    articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,undefined,authorFilter,"MIX","",""));
+}
+function test2() {
+    articleService.addArticle({
+        title: "Oculus price drop proves competition is key to VR success",
+        summary: "Gaming in VR has a bit of a barrier to entry. Nestled between the phone-based headsets and the high-end experiences is the PlayStation VR, but that’s still $399 plus the PlayStation itself. For Oculus or HTC you’re looking at $800-plus and a high-end gaming rig that should set youbackatleastagrand.",
+        createdAt: new Date('2017-03-01T22:43') ,
+        author: "MIX",
+        content: "The company today announced a price drop on its Rift headset with Touch controllers. The bundle will now sell for $598, down from the $798 retail price it’s typically listed at. If you already have Rift, you can grab touch for just $99 — although you’ll have to splurge for the $58 sensor to map its movements.",
+        tags: ["TECH","CARS"]
+    });
+    articleInsertTool.resetArticleContainer();
+    articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,undefined,authorFilter,"MIX","",""));
+}
+function test3() {
+    articleService.removeArticle("21");
+    articleInsertTool.resetArticleContainer();
+    articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,undefined,authorFilter,"MIX","",""));
+}
+function test4() {
+    articleService.editArticle("13",{title:"Strange edited article"});
+    articleInsertTool.resetArticleContainer();
+    articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,undefined,authorFilter,"MIX","",""));
 
+}
 function initInsertToolAndStartRoutine() {
     /* DOM Загрузился.
      Можно найти в нем нужные элементы и сохранить в переменные */
     articleInsertTool.init();
+
+    // articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
     /* Нарисуем статьи из массива GLOBAL_ARTICLES в DOM */
     // renderArticles();
 }
