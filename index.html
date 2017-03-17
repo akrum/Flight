@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>FLIGHT</title>
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -51,7 +51,7 @@
                         </td>
                     </tr>
                 </table>
-                <button class="submit-button">Submit</button>
+                <button class="popover-button">Submit</button>
             </form>
         </div>
         <div class="login-form" id="loginFields">
@@ -65,8 +65,9 @@
         <div class="register-form" id="registerFields">
             <i class="fa fa-times close-button" aria-hidden="true" id="registerCloseButton"></i>
             <input placeholder="Login" align="center" class="general-input-fields">
-            <input placeholder="Password" align="center" class="general-input-fields">
+            <input placeholder="Password" align="center" class="general-input-fields" type="password">
             <input placeholder="email" align="center" class="general-input-fields">
+            <div class="g-recaptcha re-captcha-style" data-sitekey="6Lcy8RgUAAAAABO53T_Td1KAtbVGMa7eWVrPNWpl" id="newRecaptcha"></div>
             <button class="submit-button">Login</button>
         </div>
     </div>
@@ -85,7 +86,7 @@
     </div>
 </div>
 
-
+<script src="fillLocalStorageByDefault.js"></script>
 <script src="script.js"></script>
 <script src="graphics.js" async></script>
 <div style="position: relative">
