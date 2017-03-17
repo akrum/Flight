@@ -7,13 +7,21 @@ const tagFilter=0b1000;
 var articleService=(function () {
     var articles;
     var isInitiated = false;
+    var nextIndex;
     function init()
     {
       articles = JSON.parse(localStorage.getItem("userArticles"),function (key, value) {
           if(key==="createdAt")return new Date(value);
           return value;
       });
+      nextIndex=parseInt(JSON.parse(localStorage.getItem("defaultNextIndex")));
+      console.log("Will be using next index:", nextIndex);
       isInitiated=true;
+    }
+    function saveChanges()
+    {
+        localStorage.setItem("userArticles",JSON.stringify(articles));
+        localStorage.setItem("defaultNextIndex",JSON.stringify(nextIndex));
     }
     function rgb(r, g, b){
         return "rgb("+r%256+","+g%256+","+b%256+")";
@@ -147,7 +155,6 @@ var articleService=(function () {
         }
         return true;
     }
-    var nextIndex=21;
     function getArticle(idNumber) {
         return articles.filter(function (article) {
             return article.id===idNumber;
@@ -211,6 +218,7 @@ var articleService=(function () {
         if (validateArticle(article)) {
             articles.push(article);
             nextIndex++;
+            saveChanges();
         }
         else return false;
     }
@@ -225,6 +233,7 @@ var articleService=(function () {
         }
         articles.splice(index,1);
         nextIndex--;
+        saveChanges();
     }
     function editArticle(articleID,someArticle) {
         var clone = Object.assign({}, getArticle(articleID));
@@ -240,6 +249,7 @@ var articleService=(function () {
                 if(articles[i].id==articleID)
                 {
                     articles[i]=clone;
+                    saveChanges();
                     return true;
                 }
             }
