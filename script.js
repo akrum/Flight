@@ -8,6 +8,7 @@ var articleService=(function () {
     var articles;
     var isInitiated = false;
     var nextIndex;
+    var tags=[];
     function init()
     {
       articles = JSON.parse(localStorage.getItem("userArticles"),function (key, value) {
@@ -15,7 +16,9 @@ var articleService=(function () {
           return value;
       });
       nextIndex=parseInt(JSON.parse(localStorage.getItem("defaultNextIndex")));
+      tags = JSON.parse(localStorage.getItem("defaultTags"));
       console.log("Will be using next index:", nextIndex);
+
       isInitiated=true;
     }
     function saveChanges()
@@ -26,56 +29,7 @@ var articleService=(function () {
     function rgb(r, g, b){
         return "rgb("+r%256+","+g%256+","+b%256+")";
     }
-    var tags=[
-        {
-            tag:"TECH",
-            color: rgb(255,0,0)
-        },
-        {
-            tag:"SpaceX",
-            color: rgb(0,255,0)
-        },
-        {
-            tag:"TNW",
-            color: rgb(0,255,0)
-        },
-        {
-            tag:"GOOGLE",
-            color: rgb(0,0,255)
-        },
-        {
-            tag:"MICROSOFT",
-            color: rgb(40,10,20)
-        },
-        {
-            tag:"FACEBOOK",
-            color: rgb(230,254,0)
-        },
-        {
-            tag:"CARS",
-            color: rgb(255,0,0)
-        },
-        {
-            tag:"APPLE",
-            color: rgb(20,20,20)
-        },
-        {
-            tag:"TESLA",
-            color: rgb(210,0,210)
-        },
-        {
-            tag:"apps",
-            color: rgb(80,255,70)
-        },
-        {
-            tag:"WORLD",
-            color: rgb(0,210,210)
-        },
-        {
-            tag:"POLITICS",
-            color: rgb(0,0,0)
-        },
-    ];
+
     function checkTagForExistanceIn(someTag, place) {
         // console.log("Searching:"+someTag+" in");
         // console.log(place);

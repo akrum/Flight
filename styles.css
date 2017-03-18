@@ -227,7 +227,7 @@
     .popover-content{
         position: absolute;
         border-radius: 5%;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.8);
         z-index: 30;
         left: 25%;
         margin-top: -4%;
@@ -308,7 +308,7 @@
     }
 
     .tag-pick-field:hover{
-        background-color: rgba(255,254,253,0.7);
+        background-color: rgba(255,254,253,0.9);
     }
     table {
         border: none; border-collapse: collapse;
@@ -369,4 +369,24 @@
         margin-left: 1%;
         transform:scale(0.77);
         box-shadow: 0px 0px 7px 2px grey;
+    }
+    .tag-pick-field-chosen{
+        border: 2px solid #4CAF50;
+        border-radius: 5%;
+        background-color: transparent;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*float: left;*/
+        font-size: 100%;
+        margin: 4px 2px;
+        cursor: pointer;
+        height: 9vh;
+        width: 10vw;
+        transition: background-color 0.5s;
+    }
+
+    .tag-pick-field-chosen:hover{
+        background-color: rgba(255,0,0,0.2);
     }

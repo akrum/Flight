@@ -184,20 +184,75 @@ var articles = [
     }
 
 ];
+function rgb(r, g, b){
+    return "rgb("+r%256+","+g%256+","+b%256+")";
+}
+var allTags = [
+    {
+        tag: "TECH",
+        color: rgb(255, 0, 0)
+    },
+    {
+        tag: "SpaceX",
+        color: rgb(170, 0, 90)
+    },
+    {
+        tag: "TNW",
+        color: rgb(0, 255, 0)
+    },
+    {
+        tag: "GOOGLE",
+        color: rgb(0, 0, 255)
+    },
+    {
+        tag: "MICROSOFT",
+        color: rgb(40, 10, 20)
+    },
+    {
+        tag: "FACEBOOK",
+        color: rgb(255, 255, 0)
+    },
+    {
+        tag: "CARS",
+        color: rgb(255, 90, 90)
+    },
+    {
+        tag: "APPLE",
+        color: rgb(80, 80, 80)
+    },
+    {
+        tag: "TESLA",
+        color: rgb(210, 0, 210)
+    },
+    {
+        tag: "apps",
+        color: rgb(139, 69, 19)
+    },
+    {
+        tag: "WORLD",
+        color: rgb(0, 210, 210)
+    },
+    {
+        tag: "POLITICS",
+        color: rgb(0, 0, 0)
+    },
+];
 alert("WARNING!\nThe Site is being serviced now: execution can be unstable");
 function Greetings()
 {
     alert("Welcome to the Online newspaper FLIGHT. You can start discovering by pushing '?' on the right bottom of the page");
 }
-if(localStorage.getItem("userArticles")===null)
+if(localStorage.getItem("userArticles")===null||localStorage.getItem("defaultTags")==null)
 {
     console.log("Loading default articles to local storage");
     localStorage.setItem("userArticles",JSON.stringify(articles));
     localStorage.setItem("defaultNextIndex",JSON.stringify(21));
+    localStorage.setItem("defaultTags",JSON.stringify(allTags));
     document.addEventListener('DOMContentLoaded', Greetings);
 }
 function cleanFlightLocalStorage (){
     localStorage.removeItem("userArticles");
     localStorage.removeItem("defaultNextIndex");
+    localStorage.removeItem("defaultTags");
     console.log("Done clearing");
 }
