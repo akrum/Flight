@@ -185,12 +185,16 @@ var articles = [
 
 ];
 alert("WARNING!\nThe Site is being serviced now: execution can be unstable");
-if(localStorage.getItem("userArticles")===null)
+function Greetings()
 {
     alert("Welcome to the Online newspaper FLIGHT. You can start discovering by pushing '?' on the right bottom of the page");
+}
+if(localStorage.getItem("userArticles")===null)
+{
     console.log("Loading default articles to local storage");
     localStorage.setItem("userArticles",JSON.stringify(articles));
     localStorage.setItem("defaultNextIndex",JSON.stringify(21));
+    document.addEventListener('DOMContentLoaded', Greetings);
 }
 function cleanFlightLocalStorage (){
     localStorage.removeItem("userArticles");
