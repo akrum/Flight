@@ -36,7 +36,6 @@ var tagService = (function () {
         chosenTags.forEach(function (chosenTag) {
             tempResult+=buildOneTag("button",buildAttribute("class","tag-pick-field-chosen")+buildAttribute("style","border: 2px solid "+chosenTag.color),chosenTag.tag)
         });
-        console.log(tempResult);
         chosenTagsHTMLContainer.innerHTML=tempResult;
     }
     function refillAvailableHTML() {
@@ -62,12 +61,58 @@ var tagService = (function () {
         }
         fillByDefault();
     }
-
+    function moveTagFromAvailableToChosen(tagName) {
+        var index=0;
+        for(var i=0;i<availableTags.length;i++){
+            if(availableTags[i].tag.trim().toLowerCase()===tagName.trim().toLowerCase())
+            {
+                chosenTags.push(availableTags[i]);
+                index=i;
+                break;
+            }
+        }
+        availableTags.splice(index,1);
+        fillByDefault();
+    }
+    function moveTagFromChosenToAvailable(tagName) {
+        var index=0;
+        for(var i=0;i<chosenTags.length;i++){
+            if(chosenTags[i].tag.trim().toLowerCase()===tagName.trim().toLowerCase())
+            {
+                availableTags.push(chosenTags[i]);
+                index=i;
+                break;
+            }
+        }
+        chosenTags.splice(index,1);
+        fillByDefault();
+    }
+    function gotMouseOnAvailableClickFunction(evnt)
+    {
+        if(evnt.target.nodeName.toUpperCase()=="BUTTON")
+        {
+            console.log("will move tag from available to chosen");
+            moveTagFromAvailableToChosen(evnt.target.textContent);
+        }
+        evnt.preventDefault();
+    }
+    function gotMouseOnChosenClickFunction(evnt) {
+        if(evnt.target.nodeName.toUpperCase()=="BUTTON")
+        {
+            console.log("Will move tag from chosen to available");
+            moveTagFromChosenToAvailable(evnt.target.textContent);
+        }
+        evnt.preventDefault();
+    }
     return {
-        init: init
+        init: init,
+        gotMouseOnAvailableClickFunction: gotMouseOnAvailableClickFunction,
+        gotMouseOnChosenClickFunction:gotMouseOnChosenClickFunction
     };
 }());
 document.addEventListener('DOMContentLoaded', startRoutine);
+document.getElementById('availableTagsID').addEventListener('click',tagService.gotMouseOnAvailableClickFunction);
+document.getElementById('chosenTagsID').addEventListener('click',tagService.gotMouseOnChosenClickFunction);
 function startRoutine() {
     tagService.init();
 }
