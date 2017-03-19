@@ -349,8 +349,17 @@ function initInsertToolAndStartRoutine() {
         console.log(articleService.validateArticle(article));
     });
     articleInsertTool.init();
-    test1();
-    // articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
+    // test1();
+    articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
+
     /* Нарисуем статьи из массива GLOBAL_ARTICLES в DOM */
     // renderArticles();
+}
+function filterArticlesWithTags(someTags) {
+    var compiledTags=[];
+    someTags.forEach(function (oneTag) {
+        compiledTags.push(oneTag.tag);
+    });
+    if(compiledTags.length==0)articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
+    if(compiledTags.length!=0) articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,20,tagFilter,"","",compiledTags));
 }

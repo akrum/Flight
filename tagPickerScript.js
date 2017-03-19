@@ -53,12 +53,9 @@ var tagService = (function () {
         chosenTagsHTMLContainer= document.getElementById("chosenTagsID");
         availableTagsHTMLContainer = document.getElementById("availableTagsID");
         allTags = JSON.parse(localStorage.getItem("defaultTags"));
-        for (var i = 0; i < 7; i++) {
-            availableTags.push(allTags[i]);
-        }
-        for(var i=7;i<allTags.length;i++){
-            chosenTags.push(allTags[i]);
-        }
+        allTags.forEach(function (oneTag) {
+            availableTags.push(oneTag);
+        });
         fillByDefault();
     }
     function moveTagFromAvailableToChosen(tagName) {
@@ -73,6 +70,7 @@ var tagService = (function () {
         }
         availableTags.splice(index,1);
         fillByDefault();
+        filterArticlesWithTags(chosenTags);
     }
     function moveTagFromChosenToAvailable(tagName) {
         var index=0;
@@ -86,6 +84,7 @@ var tagService = (function () {
         }
         chosenTags.splice(index,1);
         fillByDefault();
+        filterArticlesWithTags(chosenTags);
     }
     function gotMouseOnAvailableClickFunction(evnt)
     {
