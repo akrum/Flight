@@ -18,9 +18,10 @@
 <body>
 <div class="container-fluid">
     <div style="margin-top: 9px; display:inline-block">
-        <img src="loginPicture.png" class="user-picture blurred-object">
+        <img src="unknownUser.png" class="user-picture blurred-object" id="authorPicture">
         <button class="ghost-button-rounded-corners blurred-object" id="loginButton">log in</button>
         <button class="ghost-button-rounded-corners blurred-object" id="registerButton">register</button>
+        <button class="ghost-button-rounded-corners blurred-object" id="logOutButton" style="display: none">log out</button>
         <button class="fa fa-bars dropdown-tag-picker blurred-object"
                 aria-hidden="true" id="bars-picker"></button>
         <div class="arrow"></div>
@@ -46,24 +47,27 @@
                         </td>
                     </tr>
                 </table>
-                <button class="popover-button">Submit</button>
+                <!--<button class="popover-button">Submit</button>-->
             </form>
         </div>
         <div class="login-form" id="loginFields">
-            <form>
+            <form name="loginForm">
                 <i class="fa fa-times close-button" aria-hidden="true" id="loginCloseButton"></i>
-                <input placeholder="Login" align="center" class="general-input-fields">
-                <input placeholder="Password" align="center" class="general-input-fields">
-                <button class="submit-button">Login</button>
+                <input placeholder="Login" align="center" class="general-input-fields" name="loginField">
+                <input placeholder="Password" align="center" class="general-input-fields" name="passwordField" type="password">
+                <button class="submit-button" id="loginSubmitButton">Login</button>
             </form>
         </div>
         <div class="register-form" id="registerFields">
             <i class="fa fa-times close-button" aria-hidden="true" id="registerCloseButton"></i>
-            <input placeholder="Login" align="center" class="general-input-fields">
-            <input placeholder="Password" align="center" class="general-input-fields" type="password">
-            <input placeholder="email" align="center" class="general-input-fields">
+            <form name="registerForm">
+                <input placeholder="Login" align="center" class="general-input-fields">
+                <input placeholder="Password" align="center" class="general-input-fields" type="password">
+                <input placeholder="email" align="center" class="general-input-fields">
+                <button class="submit-button" id="registerSubmitButton">Login</button>
+            </form>
             <div class="g-recaptcha re-captcha-style" data-sitekey="6Lcy8RgUAAAAABO53T_Td1KAtbVGMa7eWVrPNWpl" id="newRecaptcha"></div>
-            <button class="submit-button">Login</button>
+
         </div>
     </div>
 </div>
@@ -85,6 +89,7 @@
 <script src="script.js"></script>
 <script src="tagPickerScript.js"></script>
 <script src="graphics.js" async></script>
+<script src="userAuthScript.js"></script>
 <div style="position: relative">
     <p class="copyright-style">
         Copyright © 2017 Andrew Rumiantsev.

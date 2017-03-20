@@ -4,6 +4,8 @@
 const authorFilter=0b0010;
 const dateFilter=0b0100;
 const tagFilter=0b1000;
+var userLoggedIn = false;
+var userName = "default";
 var articleService=(function () {
     var articles;
     var isInitiated = false;

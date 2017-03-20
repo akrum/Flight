@@ -53,6 +53,7 @@ var showLoginFields= function (evnt) {
         objectsToBlur[i].style.filter="blur(3px)";
         objectsToBlur[i].style.pointerEvents="none";
     }
+    document.forms.loginForm.loginField.focus();
 };
 var hideLoginFiields = function (evnt) {
     document.getElementById("loginFields").style.visibility="hidden";
@@ -88,6 +89,6 @@ document.getElementById("loginButton").addEventListener("click",showLoginFields)
 document.getElementById("loginCloseButton").addEventListener("click",hideLoginFiields);
 document.getElementById("registerButton").addEventListener("click",showRegisterFields);
 document.getElementById("registerCloseButton").addEventListener("click",hideRegisterFiields);
-document.getElementById("newRecaptcha").style.transform="scale("+screen.width/1600+")";
+// document.getElementById("newRecaptcha").style.transform="scale("+$('.popover-content').width()/314+")";
 // console.log("position:"+parseInt(document.getElementById("pageRope0").style.left,10));
 // document.getElementById("pageSigns").style.top=document.getElementById("pageRope0").style.top;
