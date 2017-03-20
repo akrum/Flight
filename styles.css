@@ -133,8 +133,9 @@
     .sign-text{
         position:absolute;
         box-sizing: content-box;
-        top: 53%;
+        top: 49%;
         left: 20%;
+        text-overflow: ellipsis;
         /*right: 50%; !important;*/
         /*bottom: 50%; !important;*/
         z-index: 3;
@@ -145,11 +146,11 @@
     }
     .sign-auth-pic{
         top: 33%;
-        left: 75%;
+        left: 71%;
         position: absolute;
         z-index: 2;
-        height: 15%;
-        width: 15%;
+        height: 3vmax;
+        width: 3vmax;
         border-radius: 50%;
         box-shadow: 0px 0px 7px 2px grey;
     }
@@ -161,10 +162,14 @@
         font-size: 1vmax;
     }
     .sign-auth-name{
+        overflow: hidden;
         position: absolute;
+        box-sizing: content-box;
         white-space: nowrap;
         top: 84%;
         left: 60%;
+        text-overflow: ellipsis;
+        width: 38%;
         color: gray;
         font-family: sans-serif;
         font-size: 1vmax;
@@ -183,7 +188,6 @@
         top: 50%;
     }
     .small-dot-tag {
-
         top: 37%;
         left: 40%;
         position: absolute;
