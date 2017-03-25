@@ -1,6 +1,7 @@
 /**
  * Created by akrum on 17.03.17.
  */
+var FLIGHT_VERSION="1.0";
 var articles = [
     {
         id: '1',
@@ -236,13 +237,23 @@ var allTags = [
         tag: "POLITICS",
         color: rgb(0, 0, 0)
     },
+    {
+        tag:"DEMO",
+        color: rgb(255,255,255)
+    }
 ];
-alert("WARNING!\nThe Site is being serviced now: execution can be unstable");
 function Greetings()
 {
-    alert("Welcome to the Online newspaper FLIGHT. You can start discovering by pushing '?' on the right bottom of the page");
+    alert("Welcome to the Online newspaper FLIGHT("+FLIGHT_VERSION+"). You can start discovering by pushing '?' on the right bottom of the page");
 }
-if(localStorage.getItem("userArticles")===null||localStorage.getItem("defaultTags")==null)
+var userFlightVersion=localStorage.getItem("Flight_newspaper_version");
+if(!userFlightVersion||userFlightVersion!==FLIGHT_VERSION)
+{
+    cleanFlightLocalStorage();
+    localStorage.setItem("Flight_newspaper_version",FLIGHT_VERSION);
+}
+ alert("WARNING!\nThe Site is being serviced now: execution can be unstable");
+if(localStorage.getItem("userArticles")===null||localStorage.getItem("defaultTags")===null)
 {
     console.log("Loading default articles to local storage");
     localStorage.setItem("userArticles",JSON.stringify(articles));
@@ -250,6 +261,7 @@ if(localStorage.getItem("userArticles")===null||localStorage.getItem("defaultTag
     localStorage.setItem("defaultTags",JSON.stringify(allTags));
     document.addEventListener('DOMContentLoaded', Greetings);
 }
+
 function cleanFlightLocalStorage (){
     localStorage.removeItem("userArticles");
     localStorage.removeItem("defaultNextIndex");

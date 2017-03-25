@@ -1,6 +1,7 @@
 /**
  * Created by akrum on 28.02.17.
  */
+//stormpass
 const authorFilter=0b0010;
 const dateFilter=0b0100;
 const tagFilter=0b1000;
@@ -37,7 +38,7 @@ var articleService=(function () {
         // console.log(place);
         var didFind=false;
         place.forEach(function (someString) {
-            if(someString.toLowerCase().trim()==someTag.trim().toLowerCase()){
+            if(someString.toLowerCase().trim()===someTag.trim().toLowerCase()){
                 // console.log("found");
                 didFind=true;
             }
@@ -59,19 +60,24 @@ var articleService=(function () {
             console.log("wrong article id");
             return false;
         }
-        if (!article.title)return false;
+        if (!article.title)
+        {
+            return false;
+        }
         else
         {
-            if ((article.title.length>=100)||article.title.length==0){
+            if ((article.title.length>=100)||article.title.length===0){
                 console.log("wrong article title length");
                 return false;
             }
         }
 
-        if(!article.summary)return false;
+        if(!article.summary){
+            return false;
+        }
         else
         {
-            if(article.summary.length>=300||article.summary.length==0){
+            if(article.summary.length>=300||article.summary.length===0){
                 console.log("wrong article:"+article.id+" summary length: "+article.summary.length);
                 return false;
             }
@@ -85,7 +91,7 @@ var articleService=(function () {
             console.log("wrong article author");
             return false;
         }
-        else if (article.author.length==0){
+        else if (article.author.length===0){
             console.log("wrong article author length");
             return false;
         }
@@ -93,7 +99,7 @@ var articleService=(function () {
             console.log("something with content");
             return false;
         }
-        else if (article.content.length==0){
+        else if (article.content.length===0){
             console.log("wrong article content length");
             return false;
         }
@@ -117,27 +123,28 @@ var articleService=(function () {
         })[0];
     }
     function getAllArticles() {
+        sortArticles(articles);
         return articles;
     }
     function getArticles(skip=0, top=10,filterConfig, filterStringAuthor,filterStringDate, filterStringTags)
     {
         console.log("skip:"+skip+" top:"+top);
         var result=articles;
-        if ((filterConfig&authorFilter)==authorFilter)
+        if ((filterConfig&authorFilter)===authorFilter)
         {
             console.log("using author Filter");
             result=result.filter(function (article) {
                 return article.author.toLowerCase()===filterStringAuthor.toLowerCase();
             })
         }
-        if ((filterConfig&dateFilter)==dateFilter)
+        if ((filterConfig&dateFilter)===dateFilter)
         {
             console.log("using date filter");
             result=result.filter(function (article) {
-                return article.createdAt.getYear()== new Date(filterStringDate).getYear();
+                return article.createdAt.getYear()=== new Date(filterStringDate).getYear();
             })
         }
-        if ((filterConfig&tagFilter)==tagFilter)
+        if ((filterConfig&tagFilter)===tagFilter)
         {
             console.log("using tag filter");
             if (tags.find(function (tag) {
@@ -181,7 +188,7 @@ var articleService=(function () {
     function removeArticle(id) {
         var index=0;
         for(var i=0;i<articles.length;i++){
-            if(articles[i].id==id)
+            if(articles[i].id===id)
             {
                 index=i;
                 break;
@@ -202,7 +209,7 @@ var articleService=(function () {
         if (someArticle.tags)clone.tags=someArticle.tags;
         if (validateArticle(clone)) {
             for(var i=0;i<articles.length;i++){
-                if(articles[i].id==articleID)
+                if(articles[i].id===articleID)
                 {
                     articles[i]=clone;
                     saveChanges();
@@ -274,13 +281,13 @@ var articleInsertTool = (function () {
     function makeHtmlForArticle(article)
     {
         var result="";
-        result+=buildOneTag("img",buildAttribute("src","Sign-better.png")+buildAttribute("class","my-signs"),undefined);
+        result+=buildOneTag("img",buildAttribute("src","mainInterfaceObjects/Sign-better.png")+buildAttribute("class","my-signs"),undefined);
         result+=buildOneTag("img",buildAttribute("src","loginPicture.png")+buildAttribute("class","sign-auth-pic"),undefined);
         var percentage=40;
         article.tags.forEach(function (thisArtTag) {
             articleService.getTagArray().forEach(
                 function (availableTag) {
-                    if(availableTag.tag.toLowerCase().trim()==thisArtTag.trim().toLowerCase())
+                    if(availableTag.tag.toLowerCase().trim()===thisArtTag.trim().toLowerCase())
                     {
                         result+=buildOneTag("button",buildAttribute("style","background-color:"+availableTag.color+";\nleft:"+percentage.toString()+"%")+buildAttribute("class","small-dot-tag")+buildAttribute("title",availableTag.tag),"");
                         percentage+=3;
@@ -362,6 +369,6 @@ function filterArticlesWithTags(someTags) {
     someTags.forEach(function (oneTag) {
         compiledTags.push(oneTag.tag);
     });
-    if(compiledTags.length==0)articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
-    if(compiledTags.length!=0) articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,20,tagFilter,"","",compiledTags));
+    if(compiledTags.length===0)articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
+    if(compiledTags.length!==0) articleInsertTool.appendArticlesToContainer(articleService.getArticles(undefined,20,tagFilter,"","",compiledTags));
 }

@@ -1,6 +1,6 @@
     body {
         background-color: rgb(44, 252, 254);
-        background-image: url("background.jpg");
+        background-image: url("mainInterfaceObjects/background.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -82,7 +82,7 @@
         alignment: center;
     }
     .rope-image-class{
-        background-image:url('rope4.png');
+        background-image:url('mainInterfaceObjects/rope4.png');
         background-repeat: repeat-x;
         background-size: 120vh;
         background-position-x: 0px;
@@ -393,4 +393,100 @@
 
     .tag-pick-field-chosen:hover{
         background-color: rgba(255,0,0,0.2);
+    }
+    .edit-popover-menu
+    {
+        display: none;
+        position: absolute;
+        border-radius: 5%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 30;
+        left: 10%;
+        top:9%;
+        width: 70vw;
+        height: 85vh;
+        visibility: visible;
+        filter: blur(0px);
+        box-shadow: 0px 0px 7px 2px grey;
+
+    }
+    .edit-popover-menu-title
+    {
+        margin-left:3%;
+        width: 98%;
+        margin-top: 3%;
+    }
+    .image-Upload-Div
+    {
+        display: table;
+        margin-left: 30%;
+        margin-top: -120%;
+        background-color: rgba(128, 128, 128, 0.36);
+        height: 10vmax;
+        width: 10vmax;
+        float:left;
+        text-align: center;
+        color: blue;
+        border-radius: 20%;
+        cursor: pointer;
+    }
+    .edit-class
+    {
+        float: right;
+        margin-top: 3%;
+        border: 2px solid rgba(255, 255, 255, 0);
+        margin-right: 2%;
+        width: 50vw;
+        height: 60vh;
+        font-family: Monospace, cursive;
+        font-size: 2.0vmax;
+        overflow-y: auto;
+    }
+    .edit-class:hover{
+        border: 2px solid #a8a8a8;
+    }
+    .edit-class:empty:before {
+        content:attr(data-placeholder);
+        color:gray
+    }
+    .edit-summary-field
+    {
+        margin-left:1%;
+        width: 98%;
+        margin-top: 2%;
+        font-family: 'Baloo', cursive;
+        text-align: center;
+        font-size: 2.0vmax;
+        border: 2px solid rgba(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    .edit-summary-field:hover
+    {
+        border: 2px solid #a8a8a8;
+    }
+    span {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .edit-button
+    {
+        display: inline-block;
+        width: 20%;
+        margin-top: 2%;
+        padding: 8px;
+        color: rgb(60, 83, 200);
+        border: 1px solid #fff;
+        border-radius: 5px;
+        text-align: center;
+        font-size: x-large;
+        font-family: Monospace, serif;
+        background-color: rgba(173, 173, 173, 0.36);
+        bottom:1px;
+        box-sizing: content-box;
+        margin-left: 9%;
+        float: left;
+    }
+    .edit-button:hover
+    {
+        background-color: rgba(128, 128, 128, 0.4);
     }

@@ -88,25 +88,31 @@ var tagService = (function () {
     }
     function gotMouseOnAvailableClickFunction(evnt)
     {
-        if(evnt.target.nodeName.toUpperCase()=="BUTTON")
+        if(evnt.target.nodeName.toUpperCase()==="BUTTON")
         {
             console.log("will move tag from available to chosen");
             moveTagFromAvailableToChosen(evnt.target.textContent);
         }
+        setSignsPositionToZero();
         evnt.preventDefault();
     }
     function gotMouseOnChosenClickFunction(evnt) {
-        if(evnt.target.nodeName.toUpperCase()=="BUTTON")
+        if(evnt.target.nodeName.toUpperCase()==="BUTTON")
         {
             console.log("Will move tag from chosen to available");
             moveTagFromChosenToAvailable(evnt.target.textContent);
         }
+        setSignsPositionToZero();
         evnt.preventDefault();
+    }
+    function updateArticles() {
+        filterArticlesWithTags(chosenTags);
     }
     return {
         init: init,
         gotMouseOnAvailableClickFunction: gotMouseOnAvailableClickFunction,
-        gotMouseOnChosenClickFunction:gotMouseOnChosenClickFunction
+        gotMouseOnChosenClickFunction:gotMouseOnChosenClickFunction,
+        updateArticles:updateArticles
     };
 }());
 document.addEventListener('DOMContentLoaded', startRoutine);

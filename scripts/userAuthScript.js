@@ -11,6 +11,7 @@ function loginButtonPushed(evnt) {
             document.getElementById("registerButton").style.display="none";
             document.getElementById("logOutButton").style.display="inline-block";
             document.getElementById("authorPicture").setAttribute("src","loginPicture.png");
+            userName=form.loginField.value;
             form.loginField.value="";
             form.passwordField.value="";
             hideLoginFiields();
@@ -26,7 +27,8 @@ function logOutButtonPushed(evnt) {
     document.getElementById("loginButton").style.display="inline-block";
     document.getElementById("registerButton").style.display="inline-block";
     document.getElementById("logOutButton").style.display="none";
-    document.getElementById("authorPicture").setAttribute("src","unknownUser.png");
+    document.getElementById("authorPicture").setAttribute("src","mainInterfaceObjects/unknownUser.png");
+    userName="default";
     evnt.preventDefault();
 }
 document.getElementById("loginSubmitButton").addEventListener("click", loginButtonPushed);
