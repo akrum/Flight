@@ -64,7 +64,7 @@ var showRegisterFields= function (evnt) {
     document.getElementById("registerFields").style.visibility="visible";
     blurSiteElements();
 };
-var hideRegisterFiields = function (evnt) {
+var hideRegisterFields = function (evnt) {
     document.getElementById("registerFields").style.visibility="hidden";
     unblurSiteElements();
 };
@@ -85,7 +85,7 @@ document.getElementById("popoverWindow").addEventListener("mouseleave",mouseNotO
 document.getElementById("loginButton").addEventListener("click",showLoginFields);
 document.getElementById("loginCloseButton").addEventListener("click",hideLoginFiields);
 document.getElementById("registerButton").addEventListener("click",showRegisterFields);
-document.getElementById("registerCloseButton").addEventListener("click",hideRegisterFiields);
+document.getElementById("registerCloseButton").addEventListener("click",hideRegisterFields);
 // document.getElementById("newRecaptcha").style.transform="scale("+$('.popover-content').width()/314+")";
 // console.log("position:"+parseInt(document.getElementById("pageRope0").style.left,10));
 // document.getElementById("pageSigns").style.top=document.getElementById("pageRope0").style.top;

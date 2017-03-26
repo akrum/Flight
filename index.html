@@ -72,7 +72,7 @@
         </div>
         <div class="edit-popover-menu" id="editMenu">
             <form name="editMenu">
-                <input placeholder="Article title" class="edit-summary-field" align="center" maxlength="50" name="articleTitle">
+                <input placeholder="Article title" class="edit-summary-field" align="center" maxlength="99" name="articleTitle">
                 <table>
                     <tr>
                         <td style="border-left: none;">
@@ -89,6 +89,18 @@
                 <button class="edit-button" style="color: red;" name="editMenuCancelButton">Cancel</button>
                 <button class="edit-button" name="editMenuPreviewButton">preview</button>
                 <button class="edit-button" name="editMenuDoneButton">Done</button>
+            </form>
+        </div>
+        <div class="detailed-popover-menu" id="detailedThing">
+            <form name="detailedForm">
+                <label class="detailed-title" id="detailed-title-label">TempTitle</label>
+                <button class="detailed-done-button" name="doneButton">Done</button>
+                <button class="detailed-remove-button" name="removeButton">Remove</button>
+                <img src="mainInterfaceObjects/example-detailed-picture.png" class="detailed-main-image">
+                <img src="mainInterfaceObjects/unknownUser.png" class="detailed-auth-pic">
+                <b class="detailed-auth-name" id="detailed-auth-name">by _aKrYm_</b>
+                <p class="detailed-like-container"><i class="fa fa-heart"></i>1000</p>
+                <div class="detailed-article-content" id="detailed-content"></div>
             </form>
         </div>
     </div>
@@ -114,6 +126,7 @@
 <script src="scripts/tagPickerScript.js"></script>
 <script src="scripts/userAuthScript.js"></script>
 <script src="scripts/editMenuScript.js"></script>
+<script src="scripts/detailedInfoScript.js"></script>
 <div style="position: relative">
     <p class="copyright-style">
         Copyright © 2017 Andrew Rumiantsev.

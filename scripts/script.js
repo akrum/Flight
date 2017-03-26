@@ -77,7 +77,7 @@ var articleService=(function () {
         }
         else
         {
-            if(article.summary.length>=300||article.summary.length===0){
+            if(article.summary.length>=300||article.summary.length<4){
                 console.log("wrong article:"+article.id+" summary length: "+article.summary.length);
                 return false;
             }
@@ -99,7 +99,7 @@ var articleService=(function () {
             console.log("something with content");
             return false;
         }
-        else if (article.content.length===0){
+        else if (article.content.length<2){
             console.log("wrong article content length");
             return false;
         }
@@ -222,6 +222,19 @@ var articleService=(function () {
     function getTagArray() {
         return tags;
     }
+    function compileDefaultArticle() {
+        var tempResult=
+            {
+                id: nextIndex,
+                title: "default title",
+                summary: "default summary",
+                createdAt: new Date(),
+                author: userName,
+                content: "default content",
+                tags: ["TECH", "DEMO"]
+            };
+        return tempResult;
+    }
     return{
         init:init,
         checkTagForExistenceIn: checkTagForExistanceIn,
@@ -233,7 +246,8 @@ var articleService=(function () {
         removeArticle: removeArticle,
         editArticle: editArticle,
         getAllArticles: getAllArticles,
-        getTagArray: getTagArray
+        getTagArray: getTagArray,
+        compileDefaultArticle:compileDefaultArticle
     };
 }());
 
@@ -281,7 +295,7 @@ var articleInsertTool = (function () {
     function makeHtmlForArticle(article)
     {
         var result="";
-        result+=buildOneTag("img",buildAttribute("src","mainInterfaceObjects/Sign-better.png")+buildAttribute("class","my-signs"),undefined);
+        result+=buildOneTag("img",buildAttribute("src","mainInterfaceObjects/Sign-better.png")+buildAttribute("class","my-signs")+buildAttribute("data-id",article.id),undefined);
         result+=buildOneTag("img",buildAttribute("src","loginPicture.png")+buildAttribute("class","sign-auth-pic"),undefined);
         var percentage=40;
         article.tags.forEach(function (thisArtTag) {
@@ -295,10 +309,10 @@ var articleInsertTool = (function () {
                 }
             )
         });
-        result+=buildOneTag("p",buildAttribute("class","sign-text"),article.title);
+        result+=buildOneTag("p",buildAttribute("class","sign-text")+buildAttribute("data-id",article.id),article.title);
         result+=buildOneTag("p",buildAttribute("class","like-container"),buildOneTag("i",buildAttribute("class","fa fa-heart"),"")+"1000");
         result+=buildOneTag("b",buildAttribute("class","sign-auth-name"),"by "+article.author);
-        result=buildOneTag("div",buildAttribute("class","sign-container")+buildAttribute("data-id",article.id),result);
+        result=buildOneTag("div",buildAttribute("class","sign-container"),result);
         return result;
     }
     function makeHtmlForAllArticles(articles) {
@@ -360,9 +374,6 @@ function initInsertToolAndStartRoutine() {
     articleInsertTool.init();
     // test1();
     articleInsertTool.appendArticlesToContainer(articleService.getAllArticles());
-
-    /* Нарисуем статьи из массива GLOBAL_ARTICLES в DOM */
-    // renderArticles();
 }
 function filterArticlesWithTags(someTags) {
     var compiledTags=[];

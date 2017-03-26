@@ -1,7 +1,7 @@
 /**
  * Created by akrum on 17.03.17.
  */
-var FLIGHT_VERSION="1.0";
+var FLIGHT_VERSION="0.1(Stable)";
 var articles = [
     {
         id: '1',
@@ -252,7 +252,7 @@ if(!userFlightVersion||userFlightVersion!==FLIGHT_VERSION)
     cleanFlightLocalStorage();
     localStorage.setItem("Flight_newspaper_version",FLIGHT_VERSION);
 }
- alert("WARNING!\nThe Site is being serviced now: execution can be unstable");
+alert("WARNING!\nThe Site is being serviced now: execution can be unstable");
 if(localStorage.getItem("userArticles")===null||localStorage.getItem("defaultTags")===null)
 {
     console.log("Loading default articles to local storage");
